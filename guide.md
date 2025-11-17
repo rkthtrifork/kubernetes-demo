@@ -1,11 +1,16 @@
 ## Prerequisites
 
 - `Docker` or similar (for running kind nodes)
+  - https://docs.docker.com/engine/install/
 - `kind`
-- `kubectl` inslled
+  - https://kind.sigs.k8s.io/docs/user/quick-start/#installation
+- `kubectl` installed
+  - https://kubernetes.io/docs/tasks/tools/
 - `helm` installed
+  - https://helm.sh/docs/intro/install/
 - Optional but nice:
   - **k9s**: terminal UI for Kubernetes that you can use instead of many `kubectl` commands
+    - https://github.com/derailed/k9s?tab=readme-ov-file#installation
 
 ## What is Kubernetes?
 
