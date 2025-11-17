@@ -19,7 +19,7 @@
 ## Create kind cluster
 
 ```bash
-kind create cluster --config kind-config.yaml
+kind create cluster --config manifests/kind-config.yaml
 ```
 
 ## Create namespace
