@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: curler
+  namespace: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: curler
+  template:
+    metadata:
+      labels:
+        app: curler
+    spec:
+      containers:
+        - name: curler
+          image: curlimages/curl:8.10.1
+          command: ["sleep", "infinity"]

@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-resources
+  namespace: demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-resources
+  template:
+    metadata:
+      labels:
+        app: demo-resources
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.27
+          resources:
+            requests:
+              cpu: "100m" # scheduler reserves 0.1 CPU
+              memory: "128Mi" # and 128Mi memory
+            limits:
+              cpu: "300m" # container can burst up to 0.3 CPU
+              memory: "256Mi" # hard cap at 256Mi
+          ports:
+            - containerPort: 80

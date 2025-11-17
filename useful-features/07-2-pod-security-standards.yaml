@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-pss-restricted
+  namespace: demo-pss-restricted
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-pss-restricted
+  template:
+    metadata:
+      labels:
+        app: demo-pss-restricted
+    spec:
+      # securityContext:
+      #   runAsNonRoot: true
+      #   seccompProfile:
+      #     type: RuntimeDefault
+      containers:
+        - name: app
+          image: nginxinc/nginx-unprivileged:stable-alpine
+          command: ["sleep", "3600"]
+          # securityContext:
+          #   runAsUser: 1000
+          #   allowPrivilegeEscalation: false
+          #   readOnlyRootFilesystem: true
+          #   capabilities:
+          #     drop:
+          #       - ALL
