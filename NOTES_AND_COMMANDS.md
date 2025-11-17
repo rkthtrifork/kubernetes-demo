@@ -1,5 +1,6 @@
 ## What is kubernetes?
 
+- Container orchestrator
 - Kubernetes reconciles _desired state_ (YAML/CLI) with _actual state_ by running controllers in a control plane.
 - You describe what you want (e.g., 2 replicas of an app). Controllers make/keep it true.
 
