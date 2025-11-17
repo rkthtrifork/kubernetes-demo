@@ -24,13 +24,13 @@ kind create cluster --config kind-config.yaml
 ## Create namespace
 
 ```bash
-kubectl apply -f 00-namespace.yaml
+kubectl apply -f manifests/00-namespace.yaml
 ```
 
 ## Deploy a simple backend
 
 ```bash
-kubectl apply -f 01-backend.yaml
+kubectl apply -f manifests/01-backend.yaml
 ```
 
 - controller-manager: Deployment -> ReplicaSet -> Pods
@@ -39,7 +39,7 @@ kubectl apply -f 01-backend.yaml
 ## Create a service for the backend
 
 ```bash
-kubectl apply -f 02-service.yaml
+kubectl apply -f manifests/02-service.yaml
 ```
 
 - Stable virtual IP for multiple pods
@@ -51,7 +51,7 @@ kubectl apply -f 02-service.yaml
 Create a pod with curl
 
 ```bash
-kubectl apply -f 03-curler.yaml
+kubectl apply -f manifests/03-curler.yaml
 ```
 
 exec into curler and call the service by FQDN (fully qualified domain name)
@@ -99,7 +99,7 @@ kubectl -n traefik port-forward svc/traefik 8000:80
 Create ingress resource
 
 ```bash
-kubectl apply -f 04-ingress.yaml
+kubectl apply -f manifests/04-ingress.yaml
 ```
 
 Map host locally and test
